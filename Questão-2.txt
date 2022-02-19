@@ -1,0 +1,54 @@
+import  java.util.ArrayList ;
+import  java.util.List ;
+importar  java.util.Scanner ;
+importar  java.util.regex.Matcher ;
+importar  java.util.regex.Pattern ;
+
+public  class  Exercício2 {
+
+	public  static  void  main ( String [] args ) {
+		// stub do método TODO gerado automaticamente
+		
+		/* Débora se inscreveu em uma rede social para se manter em contato com seus amigos.
+		 * A página de cadastro exigia o preenchimento dos campos de nome e senha, porém a senha precisa ser forte.
+		 * O site considera uma senha forte quando ela atendeu aos seguintes requisitos:
+		 * Possui no mínimo 6 caracteres.
+		 * Contém no mínimo 1 dígito.
+		 Contém no mínimo 1 letra em *
+		 * Contém no mínimo 1 letra em maiúsculo.
+		 * Contém no mínimo 1 caractere especial. Os caracteres especiais são: !@#$%^&*()-+
+		 * Débora digitou uma string aleatória no campo de senha, porém ela não tem certeza se é uma senha forte.
+		 * Para ajudar a Débora, construa um número de caracteres que informe qual é o número que deve ser adicionado
+		 * para uma string qualquer que seja considerada segura.
+		 */
+		
+		// Variáveis
+		Senha de sequência;
+		int qtC;
+				
+		// Para ler a entrada de dados
+		Scanner leia =  new  Scanner ( System . in);
+				
+		// Lógica
+		Sistema . fora . println( " Digite sua senha: " );
+		senha = leia . Próximo();
+		
+		String regex =  " ^(?=.*[0-9]) "
+                +  " (?=.*[az])(?=.*[AZ]) "
+                +  " (?=.*[!@#$%^&*()-+]) "
+                +  " (?= \\ S+$).{6}$ " ;
+		
+		// Combinar a senha fornecida com o regex
+		Padrão p =  Padrão . compilar(regex);
+		Combinador m = p . combinador(senha);
+		
+		
+		// Verifica a quantidade de caracteres da senha
+		if (senha . comprimento() < 6 ) {
+			   qtC =  6  - senha . comprimento();
+			   Sistema . fora . println( " Deve ser adicionados "  + qtC +  " caracteres para a senha ser segura " );
+		   }
+		
+	}
+
+}

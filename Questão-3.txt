@@ -1,0 +1,70 @@
+importar  java.util.Arrays ;
+importar  java.util.HashMap ;
+importar  java.util.Scanner ;
+
+public  class  Exercício3 {
+
+	public  static  void  main ( String [] args ) {
+		// stub do método TODO gerado automaticamente
+		
+		/*
+		 * Duas palavras podem ser capazes de se tornar um nagramas de uma palavra podem ser realocadas
+		 * para formar a outra palavra. Dada uma string qualquer, pode-se encontrar um número de pares
+		 * de substrings que são anagramas.
+		 *
+		 */
+		
+		// Variáveis
+		String palavra;
+		
+		// Para ler a entrada de dados
+		Scanner leia =  new  Scanner ( System . in);
+						
+		// Lógica
+		Sistema . fora . println( " Digite o texto: " );
+        palavra = leia . próximaLinha();
+		
+        // Vou chamar uma função para ficar melhor a compreensão
+        anagrama(palavra);
+	}
+	
+	
+	// Criando uma função
+	 static  void  anagrama ( String  palavra ){
+	        
+	        // Armazena o valor dos personagens marcantes
+	        HashMap< String , Integer > mapa =  new  HashMap<> ();
+	        
+	        // Lógica
+	        for ( int i   =  0 ; i <= palavra . length(); i ++ ){
+	            
+	       
+	            for ( int j = i; j < palavra . length(); j ++ ){
+	                
+	                // Variável para armazer os caracteres
+	                char [] caracter = palavra . substring(i, j + 1 ) . toCharArray();
+	                Matrizes . sort(caractere);
+	                String subCaract =  new  String (caracter);
+	                
+	                // Verifica cada substring
+	                if (mapa . contémKey(subCaract)){
+	                    mapa . put(subCaract, mapa . get(subCaract) +  1 );
+	                }                    
+	                senão {
+	                    mapa . put(subCaract, 1 );
+	                }                    
+	            }
+	        }
+	        
+	        // Para fazer a verificação dos anagramas
+	        int contaPares =  0 ;
+	        
+	        for ( String cont : mapa . keySet()) {
+	            
+	            int n = mapa . get(cont);
+	            contaPares += (n * (n - 1 )) / 2 ;
+	        }
+	        Sistema . fora . print( " Quantidade de pares que são anagramas é de "  + contaPares);
+	    }
+	    
+	}
